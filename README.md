@@ -9,4 +9,4 @@
     -   If the number of registered students is greater than 50 for both faculties, the course will be held in building D.
 ## Also tested this program
 ## Created bugs for this implementations that are difficult to see
-## Minimalize tests which can detect these bugs
+## Minimize tests which can detect these bugs
