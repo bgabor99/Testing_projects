@@ -1,5 +1,5 @@
 # Testing_projects
-## The program solves this task in four diferent ways:
+## The program solves this task in four different ways:
 - BestUni University consists of two faculties: Engineering and Art and Science. 
 - The campus has four buildings labeled A, B, C, and D. The software specifications for course building allocation are as follows:
     - If the number of registered students is less than 10 in the Engineering Faculty, the course will be held in building A.
