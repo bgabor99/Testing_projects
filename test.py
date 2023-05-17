@@ -25,7 +25,7 @@ class TestAllocations(unittest.TestCase):
         self.assertEqual(allocate_3(20, 35), (Building.B, Building.C))
         self.assertEqual(allocate_3_bad(20, 35), (Building.B, Building.C))
         self.assertEqual(allocate_4(20, 35), (Building.B, Building.C))
-        # self.assertEqual(allocate_4_bad(20, 35), (Building.B, Building.C)) # fails
+        self.assertEqual(allocate_4_bad(20, 35), (Building.B, Building.C)) # fails
 
     def test_more_than_50_engineering_and_art_science(self):
         self.assertEqual(allocate_1(60, 75), (Building.D, Building.D))
