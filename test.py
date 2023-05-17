@@ -3,23 +3,17 @@ from allocation import allocate_1, Building
 
 class TestAllocations(unittest.TestCase):
     
-    def test_less_than_10_engineering(self):
-        self.assertEqual(allocate_1(8, 25), Building.A)
+    def test_less_than_10_engineering_and_art_science(self):
+        self.assertEqual(allocate_1(8, 2), (Building.A, Building.B))
         
-    def test_between_10_and_50_engineering(self):
-        self.assertEqual(allocate_1(20, 35), Building.B)
+    def test_between_10_and_50_engineering_and_art_science(self):
+        self.assertEqual(allocate_1(20, 35), (Building.B, Building.C))
         
-    def test_less_than_10_art_and_science(self):
-        self.assertEqual(allocate_1(30, 5), Building.B)
+    def test_more_than_50_engineering_and_art_science(self):
+        self.assertEqual(allocate_1(60, 75), (Building.D, Building.D))
         
-    def test_between_10_and_50_art_and_science(self):
-        self.assertEqual(allocate_1(45, 30), Building.B)
-        
-    def test_more_than_50_both_faculties(self):
-        self.assertEqual(allocate_1(60, 75), Building.D)
-        
-    def test_default_values(self):
-        self.assertEqual(allocate_1(20, 40), Building.B)
-        
+    def test_less_than_10_engineering_and_more_than_50_art_science(self):
+        self.assertEqual(allocate_1(9, 51), (Building.A, Building.D))
+
 if __name__ == '__main__':
     unittest.main()
