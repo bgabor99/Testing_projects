@@ -46,6 +46,7 @@ def allocate_1(engineering_students, art_science_students):
     
     return (engineer_course, art_science_course)
 
+
 def allocate_2(engineering_students, art_science_students):
     engineering_students_map = {
         engineering_students < 10: Building.A,
@@ -73,6 +74,46 @@ def allocate_2(engineering_students, art_science_students):
 
     return (engineer_course, art_science_course)
 
+
+def allocate_3(engineering_students, art_science_students):
+    engineer_course = (
+        Building.A if engineering_students < 10
+        else Building.B if 10 <= engineering_students <= 50
+        else Building.D
+    )
+
+    art_science_course = (
+        Building.B if art_science_students < 10
+        else Building.C if 10 <= art_science_students <= 50
+        else Building.D
+    )
+
+    return (engineer_course, art_science_course)
+
+
+def allocate_4(engineering_students, art_science_students):
+    def get_building(condition_map):
+        for condition, building in condition_map:
+            if condition:
+                return building
+        return Building.Default
+
+    engineer_course = get_building([
+        (engineering_students < 10, Building.A),
+        (10 <= engineering_students <= 50, Building.B),
+        (engineering_students > 50, Building.D),
+    ])
+
+    art_science_course = get_building([
+        (art_science_students < 10, Building.B),
+        (10 <= art_science_students <= 50, Building.C),
+        (art_science_students > 50, Building.D),
+    ])
+
+    return (engineer_course, art_science_course)
+
+
+# main
 ENGINEERING_STUDENTS = get_engineering_students_number(20)
 ART_AND_SCIENCE_STUDENTS = get_art_and_science_students_number(40)
 # Handle negative engineering_students
