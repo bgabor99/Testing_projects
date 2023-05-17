@@ -141,6 +141,22 @@ def allocate_3(engineering_students, art_science_students):
     return (engineer_course, art_science_course)
 
 
+def allocate_3_bad(engineering_students, art_science_students):
+    engineer_course = (
+        Building.A if engineering_students < 10
+        else Building.B if 10 <= engineering_students < 50
+        else Building.D
+    )
+
+    art_science_course = (
+        Building.B if art_science_students < 10
+        else Building.C if 10 <= art_science_students < 50
+        else Building.D
+    )
+
+    return (engineer_course, art_science_course)
+
+
 def allocate_4(engineering_students, art_science_students):
     def get_building(condition_map):
         for condition, building in condition_map:
@@ -162,7 +178,7 @@ def allocate_4(engineering_students, art_science_students):
 
     return (engineer_course, art_science_course)
 
-
+'''
 # main
 ENGINEERING_STUDENTS = get_engineering_students_number(20)
 ART_AND_SCIENCE_STUDENTS = get_art_and_science_students_number(40)
@@ -176,3 +192,4 @@ if ART_AND_SCIENCE_STUDENTS < 0:
 print("ENGINEERING_STUDENTS: ", ENGINEERING_STUDENTS)
 print("ART_AND_SCIENCE_STUDENTS: ", ART_AND_SCIENCE_STUDENTS)
 print(allocate_1(ENGINEERING_STUDENTS, ART_AND_SCIENCE_STUDENTS))
+'''
