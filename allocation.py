@@ -46,6 +46,32 @@ def allocate_1(engineering_students, art_science_students):
     
     return (engineer_course, art_science_course)
 
+def allocate_2(engineering_students, art_science_students):
+    engineering_students_map = {
+        engineering_students < 10: Building.A,
+        10 <= engineering_students <= 50: Building.B,
+        engineering_students > 50: Building.D,
+    }
+
+    engineer_course = Building.Default
+    for condition, building in engineering_students_map.items():
+        if condition:
+            engineer_course = building
+            break
+
+    art_science_students_map = {
+        art_science_students < 10: Building.B,
+        10 <= art_science_students <= 50: Building.C,
+        art_science_students > 50: Building.D,
+    }
+
+    art_science_course = Building.Default
+    for condition, building in art_science_students_map.items():
+        if condition:
+            art_science_course = building
+            break
+
+    return (engineer_course, art_science_course)
 
 ENGINEERING_STUDENTS = get_engineering_students_number(20)
 ART_AND_SCIENCE_STUDENTS = get_art_and_science_students_number(40)
