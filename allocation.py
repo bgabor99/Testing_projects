@@ -46,6 +46,26 @@ def allocate_1(engineering_students, art_science_students):
     
     return (engineer_course, art_science_course)
 
+def allocate_1_bad(engineering_students, art_science_students):
+    engineer_course = Building.Default
+    art_science_course = Building.Default
+
+    if engineering_students < 10:
+        engineer_course = Building.A
+    if 10 <= engineering_students <= 50:
+        engineer_course = Building.B
+    if engineering_students >= 50:
+        engineer_course = Building.D
+    
+    if art_science_students < 10:
+        art_science_course = Building.B
+    if 10 <= art_science_students <= 50:
+        art_science_course = Building.C
+    if art_science_students >= 50:
+        art_science_course = Building.D
+    
+    return (engineer_course, art_science_course)
+
 
 def allocate_2(engineering_students, art_science_students):
     engineering_students_map = {
