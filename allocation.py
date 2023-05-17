@@ -6,6 +6,7 @@ class Building(Enum):
     B = 'B'
     C = 'C'
     D = 'D'
+    Default = 'Default'
 
 # Define the number of registered students for each faculty
 ENGINEERING_STUDENTS = 0
@@ -26,18 +27,26 @@ def get_art_and_science_students_number(default_value):
         return default_value
 
 def allocate_1(engineering_students, art_science_students):
-    if engineering_students < 10:
-        return Building.A
-    elif 10 <= engineering_students <= 50:
-        return Building.B
-    elif art_science_students < 10:
-        return Building.B
-    elif 10 <= art_science_students <= 50:
-        return Building.C
-    else:
-        return Building.D
+    engineer_course = Building.Default
+    art_science_course = Building.Default
 
-'''
+    if engineering_students < 10:
+        engineer_course = Building.A
+    elif 10 <= engineering_students <= 50:
+        engineer_course = Building.B
+    elif engineering_students > 50:
+        engineer_course = Building.D
+    
+    if art_science_students < 10:
+        art_science_course = Building.B
+    elif 10 <= art_science_students <= 50:
+        art_science_course = Building.C
+    elif art_science_students > 50:
+        art_science_course = Building.D
+    
+    return (engineer_course, art_science_course)
+
+
 ENGINEERING_STUDENTS = get_engineering_students_number(20)
 ART_AND_SCIENCE_STUDENTS = get_art_and_science_students_number(40)
 # Handle negative engineering_students
@@ -49,6 +58,4 @@ if ART_AND_SCIENCE_STUDENTS < 0:
 
 print("ENGINEERING_STUDENTS: ", ENGINEERING_STUDENTS)
 print("ART_AND_SCIENCE_STUDENTS: ", ART_AND_SCIENCE_STUDENTS)
-
 print(allocate_1(ENGINEERING_STUDENTS, ART_AND_SCIENCE_STUDENTS))
-'''
