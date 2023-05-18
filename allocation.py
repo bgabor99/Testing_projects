@@ -32,20 +32,32 @@ def get_art_and_science_students_number(default_value):
 def allocate_1(engineering_students, art_science_students):
     engineer_course = Building.Default
     art_science_course = Building.Default
+    selected_engineer = False
+    selected_art_science = False
 
-    if engineering_students < 10:
-        engineer_course = Building.A
-    elif 10 <= engineering_students <= 50:
-        engineer_course = Building.B
-    elif engineering_students > 50:
-        engineer_course = Building.D
-    
-    if art_science_students < 10:
-        art_science_course = Building.B
-    elif 10 <= art_science_students <= 50:
-        art_science_course = Building.C
-    elif art_science_students > 50:
-        art_science_course = Building.D
+    if engineering_students + art_science_students > 50:
+        if engineering_students > art_science_students:
+            engineer_course = Building.D
+            selected_engineer = True
+        if engineering_students < art_science_students:
+            art_science_course = Building.D
+            selected_art_science = True
+
+    if selected_engineer == False:
+        if engineering_students < 10:
+            engineer_course = Building.A
+        elif 10 <= engineering_students <= 50:
+            engineer_course = Building.B
+        elif engineering_students > 50:
+            engineer_course = Building.D
+
+    if selected_art_science == False:
+        if art_science_students < 10:
+            art_science_course = Building.B
+        elif 10 <= art_science_students <= 50:
+            art_science_course = Building.C
+        elif art_science_students > 50:
+            art_science_course = Building.D
     
     return (engineer_course, art_science_course)
 
