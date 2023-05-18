@@ -15,6 +15,7 @@
 |                   | <10                  | B               |
 |                   | between 10-50        | C               |
 | >50               | >50                  | D               |
+| sum over 50 -> bigger group             || D               |
 
 ## The goal is
 - Tested this program
