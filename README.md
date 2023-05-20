@@ -16,7 +16,7 @@
 |                   | <10                  | art_science: B                |
 |                   | between 10-50        | art_science: C                |
 | >50               | >50                  | both: D                       |
-| x                 | y                    | x+y>50 -> bigger group: D |
+| x                 | y                    | x+y>50 -> bigger group: D (equality -> art_science: D) |
 
 ## The goal is
 - Test this program
